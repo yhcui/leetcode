@@ -20,7 +20,7 @@ public interface MyLinkedList<E> {
      * 添加无素
      * @author cuiyuhui
      * @created
-     * @param e 所需要添加的元素
+     * @param data 所需要添加的元素
      * @return
      */
     void add(E data);

@@ -1,4 +1,4 @@
-package com.yhcui.leetcode;
+package com.yhcui.ds.linkedlist.twoway;
 
 /**
  * <p>TODO</p>
@@ -11,8 +11,8 @@ package com.yhcui.leetcode;
  *
  * @author cuiyh9
  * @version 1.0
- * @Date Created in 2018年03月31日 15:07
+ * @Date Created in 2018年03月31日 15:26
  * @since 1.0
  */
-public class App {
+public class TwoWayLinkedList {
 }
