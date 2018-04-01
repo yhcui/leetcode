@@ -44,7 +44,8 @@ public interface MyLinkedList<E> {
     int size();
 
     /**
-     * 链表反转
+     * 链表反转<br>
+     * 由1->2->3变为3->2->1
      * @author cuiyuhui
      * @created
      * @param
@@ -52,6 +53,4 @@ public interface MyLinkedList<E> {
      */
     void reverse();
 
-
-    void list();
 }

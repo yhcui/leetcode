@@ -1,9 +1,6 @@
 package com.yhcui.annotation;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * <p>非线程安全注解</p>
@@ -19,6 +16,7 @@ import java.lang.annotation.Target;
  * @Date Created in 2018年04月01日 23:17
  * @since 1.0
  */
+@Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
 public @interface NotThreadSafe {

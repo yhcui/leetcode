@@ -1,5 +1,6 @@
 package com.yhcui.ds.linkedlist.oneway;
 
+import com.yhcui.annotation.NotThreadSafe;
 import com.yhcui.ds.linkedlist.MyLinkedList;
 
 /**
@@ -16,6 +17,7 @@ import com.yhcui.ds.linkedlist.MyLinkedList;
  * @Date Created in 2018年03月31日 15:21
  * @since 1.0
  */
+@NotThreadSafe
 public class OneWayLinkedList<E> implements MyLinkedList<E> {
 
 
@@ -25,9 +27,6 @@ public class OneWayLinkedList<E> implements MyLinkedList<E> {
 
     @Override
     public void add(E data) {
-        if (size >= Integer.MAX_VALUE) {
-            throw new RuntimeException("链表元素数量超出范围");
-        }
 
         Node newNode = new Node(data);
         if (head == null) {
@@ -47,8 +46,8 @@ public class OneWayLinkedList<E> implements MyLinkedList<E> {
     @Override
     public E get(int index) {
 
-        if (index < 0) {
-            throw new RuntimeException("参数非法");
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("索引超出边界异常");
         }
 
         if (head == null) {
@@ -58,7 +57,7 @@ public class OneWayLinkedList<E> implements MyLinkedList<E> {
         Node tempNode = head;
         int i = 0;
         while (tempNode != null) {
-            if (i == index++) {
+            if (index == i++) {
                 return tempNode.data;
             }
             tempNode = tempNode.next;
@@ -93,15 +92,6 @@ public class OneWayLinkedList<E> implements MyLinkedList<E> {
         }
         head = newHead.next;
 
-    }
-
-    @Override
-    public void list() {
-        Node point = head;
-        while (point != null) {
-            System.out.println("point:" + point.data);
-            point = point.next;
-        }
     }
 
     private class Node {

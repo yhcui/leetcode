@@ -1,5 +1,6 @@
 package com.yhcui.ds.linkedlist.twoway;
 
+import com.yhcui.annotation.NotThreadSafe;
 import com.yhcui.ds.linkedlist.MyLinkedList;
 
 import java.util.LinkedList;
@@ -18,6 +19,7 @@ import java.util.LinkedList;
  * @Date Created in 2018年03月31日 15:26
  * @since 1.0
  */
+@NotThreadSafe
 public class TwoWayLinkedList<E> implements MyLinkedList<E> {
 
 
@@ -29,6 +31,7 @@ public class TwoWayLinkedList<E> implements MyLinkedList<E> {
 
     @Override
     public void add(E data) {
+
         Node l = last;
         Node newNode = new Node(data, l,  null);
         last = newNode;
@@ -43,12 +46,17 @@ public class TwoWayLinkedList<E> implements MyLinkedList<E> {
     @Override
     public E get(int index) {
 
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("索引超出边界异常");
+        }
+
         Node tempNode = first;
         int i = 0;
         while (tempNode != null) {
-            if (i == index++) {
+            if (index == i++) {
                 return (E) tempNode.data;
             }
+            tempNode = tempNode.next;
         }
         return null;
     }
@@ -109,12 +117,4 @@ public class TwoWayLinkedList<E> implements MyLinkedList<E> {
         }
     }
 
-    @Override
-    public void list() {
-        while (first != null) {
-            System.out.println(first.data);
-            first = first.next;
-
-        }
-    }
 }

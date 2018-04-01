@@ -1,9 +1,10 @@
 package com.yhcui.ds.linkedlist.twoway;
 
 import com.yhcui.ds.linkedlist.MyLinkedList;
+
 import org.junit.Test;
 
-import java.util.LinkedList;
+import static junit.framework.TestCase.*;
 
 /**
  * <p>TODO</p>
@@ -21,13 +22,50 @@ import java.util.LinkedList;
  */
 public class TwoWayLinkedListTest {
 
+    /**
+     * @author cuiyuhui
+     * @created
+     * @param
+     * @return
+     */
     @Test
     public void testAdd() {
         MyLinkedList<Integer> myLinkedList = new TwoWayLinkedList<>();
         myLinkedList.add(1);
         myLinkedList.add(2);
         myLinkedList.add(3);
+
+        assertEquals(1, myLinkedList.get(0).intValue());
+        assertEquals(2, myLinkedList.get(1).intValue());
+        assertEquals(3, myLinkedList.get(2).intValue());
+        assertEquals(3, myLinkedList.size());
+
+        try {
+            myLinkedList.get(3).intValue();
+        } catch (Exception e) {
+            assertEquals(true, "索引超出边界异常".equals(e.getMessage()));
+        }
+
+        try {
+            myLinkedList.get(-1).intValue();
+        } catch (Exception e) {
+            assertEquals(true, "索引超出边界异常".equals(e.getMessage()));
+        }
+
+    }
+
+    @Test
+    public void testReverse() {
+        MyLinkedList<Integer> myLinkedList = new TwoWayLinkedList<>();
+        myLinkedList.add(1);
+        myLinkedList.add(2);
+        myLinkedList.add(3);
         myLinkedList.reverse();
-        myLinkedList.list();
+
+        assertEquals(3, myLinkedList.get(1).intValue());
+        assertEquals(2, myLinkedList.get(1).intValue());
+        assertEquals(1, myLinkedList.get(2).intValue());
+        assertEquals(3, myLinkedList.size());
+
     }
 }
