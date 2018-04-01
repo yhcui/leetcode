@@ -1,10 +1,9 @@
 package com.yhcui.ds.linkedlist.oneway;
 
 import com.yhcui.ds.linkedlist.MyLinkedList;
-import sun.jvm.hotspot.ui.FindInHeapPanel;
 
 /**
- * <p>单向链表</p>
+ * <p>单向链表,非线程安全</p>
  * <p>
  * <PRE>
  * <BR>    修改记录

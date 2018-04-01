@@ -37,6 +37,7 @@ public class TwoWayLinkedList<E> implements MyLinkedList<E> {
         } else {
             l.next = newNode;
         }
+        size++;
     }
 
     @Override
@@ -64,32 +65,20 @@ public class TwoWayLinkedList<E> implements MyLinkedList<E> {
         if (tempLast == null || tempLast.pre != null) {
             return;
         }
-
-
-
+        // 采用与add相同的算法,从last开始add即可.
         Node finFirst = null;
-
         Node finLast = null;
-
-
-
         while (tempLast != null) {
             Node temp = tempLast.next;
-
             Node ttLast = finLast;
-
             tempLast.pre = last;
             tempLast.next = null;
-
             last = tempLast;
             if (ttLast == null) {
                 first = tempLast;
             } else {
                 ttLast.next = tempLast;
             }
-
-
-
             tempLast = temp;
         }
         first = finFirst;
