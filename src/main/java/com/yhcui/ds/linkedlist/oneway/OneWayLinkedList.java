@@ -26,7 +26,6 @@ public class OneWayLinkedList<E> implements MyLinkedList<E> {
 
     @Override
     public void add(E data) {
-
         if (size >= Integer.MAX_VALUE) {
             throw new RuntimeException("链表元素数量超出范围");
         }
@@ -34,8 +33,8 @@ public class OneWayLinkedList<E> implements MyLinkedList<E> {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
-            size ++;
-            return ;
+            size++;
+            return;
         }
 
         Node tempNode = head;
@@ -43,8 +42,7 @@ public class OneWayLinkedList<E> implements MyLinkedList<E> {
             tempNode = tempNode.next;
         }
         tempNode.next = newNode;
-
-        size ++;
+        size++;
     }
 
     @Override
@@ -61,7 +59,7 @@ public class OneWayLinkedList<E> implements MyLinkedList<E> {
         Node tempNode = head;
         int i = 0;
         while (tempNode != null) {
-            if (i == index ++) {
+            if (i == index++) {
                 return tempNode.data;
             }
             tempNode = tempNode.next;
@@ -76,18 +74,15 @@ public class OneWayLinkedList<E> implements MyLinkedList<E> {
 
     @Override
     public void reverse() {
+
         if (head == null || head.next == null) {
-            return ;
+            return;
         }
-
-
 
         Node point = head;
         Node newHead = new Node();
 
-
-
-        int i = 0;
+        // 采用循环遍历方法 由前到后.
         while (point != null) {
             Node temp = point.next;
 
@@ -107,7 +102,6 @@ public class OneWayLinkedList<E> implements MyLinkedList<E> {
         while (point != null) {
             System.out.println("point:" + point.data);
             point = point.next;
-
         }
     }
 
