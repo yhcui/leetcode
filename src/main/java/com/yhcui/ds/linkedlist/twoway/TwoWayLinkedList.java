@@ -68,30 +68,36 @@ public class TwoWayLinkedList<E> implements MyLinkedList<E> {
 
     @Override
     public void reverse() {
-        Node tempLast = last;
 
-        if (tempLast == null || tempLast.pre != null) {
-            return;
-        }
-        // 采用与add相同的算法,从last开始add即可.
-        Node finFirst = null;
-        Node finLast = null;
-        while (tempLast != null) {
-            Node temp = tempLast.next;
-            Node ttLast = finLast;
-            tempLast.pre = last;
-            tempLast.next = null;
-            last = tempLast;
-            if (ttLast == null) {
-                first = tempLast;
-            } else {
-                ttLast.next = tempLast;
+        // 从头重新构建list
+        Node tempNode = first;
+        Node tempLast =  null;
+        Node tempHead = new Node();
+        int i = 0;
+        while (tempNode != null) {
+            Node tempPre =  tempNode.next;
+            Node tempHeadNext = tempHead.next;
+            tempNode.next = tempHeadNext;
+            tempNode.pre = tempHead;
+            tempHead.next = tempNode;
+
+            if (i == 0) {
+                tempLast = tempNode;
             }
-            tempLast = temp;
+            tempNode = tempPre;
+            i++;
         }
-        first = finFirst;
-        last = finLast;
 
+        first = tempHead.next;
+        last = tempLast;
+    }
+
+    public void list() {
+        Node tempNode = first;
+        while (tempNode != null) {
+            System.out.println("list:" + tempNode.data);
+            tempNode = tempNode.next;
+        }
     }
 
     private class Node<E> {

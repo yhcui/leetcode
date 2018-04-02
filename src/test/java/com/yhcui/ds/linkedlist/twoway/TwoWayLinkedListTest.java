@@ -2,6 +2,7 @@ package com.yhcui.ds.linkedlist.twoway;
 
 import com.yhcui.ds.linkedlist.MyLinkedList;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
@@ -22,18 +23,23 @@ import static junit.framework.TestCase.*;
  */
 public class TwoWayLinkedListTest {
 
-    /**
-     * @author cuiyuhui
-     * @created
-     * @param
-     * @return
-     */
-    @Test
-    public void testAdd() {
-        MyLinkedList<Integer> myLinkedList = new TwoWayLinkedList<>();
+    private MyLinkedList<Integer> myLinkedList;
+
+    @Before
+    public void before() {
+        myLinkedList = new TwoWayLinkedList<>();
         myLinkedList.add(1);
         myLinkedList.add(2);
         myLinkedList.add(3);
+    }
+
+    @Test
+    public void testAdd() {
+        assertEquals(3, myLinkedList.size());
+    }
+
+    @Test
+    public void testGet() {
 
         assertEquals(1, myLinkedList.get(0).intValue());
         assertEquals(2, myLinkedList.get(1).intValue());
@@ -55,17 +61,27 @@ public class TwoWayLinkedListTest {
     }
 
     @Test
-    public void testReverse() {
-        MyLinkedList<Integer> myLinkedList = new TwoWayLinkedList<>();
-        myLinkedList.add(1);
-        myLinkedList.add(2);
-        myLinkedList.add(3);
-        myLinkedList.reverse();
+    public void testSize() {
+        assertEquals(3, myLinkedList.size());
+    }
 
-        assertEquals(3, myLinkedList.get(1).intValue());
+    @Test
+    public void testReverse() {
+        myLinkedList.reverse();
+        ((TwoWayLinkedList)myLinkedList).list();
+        assertEquals(3, myLinkedList.get(0).intValue());
         assertEquals(2, myLinkedList.get(1).intValue());
         assertEquals(1, myLinkedList.get(2).intValue());
         assertEquals(3, myLinkedList.size());
-
+        try {
+            myLinkedList.get(3).intValue();
+        } catch (Exception e) {
+            assertEquals(true, "索引超出边界异常".equals(e.getMessage()));
+        }
+        try {
+            myLinkedList.get(-1).intValue();
+        } catch (Exception e) {
+            assertEquals(true, "索引超出边界异常".equals(e.getMessage()));
+        }
     }
 }
