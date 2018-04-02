@@ -68,6 +68,9 @@ public class TwoWayLinkedList<E> implements MyLinkedList<E> {
 
     @Override
     public void reverse() {
+        if (first == null || first.next == null) {
+            return;
+        }
 
         // 从头重新构建list
         Node tempNode = first;

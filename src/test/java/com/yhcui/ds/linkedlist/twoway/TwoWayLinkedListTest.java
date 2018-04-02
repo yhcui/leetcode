@@ -2,7 +2,6 @@ package com.yhcui.ds.linkedlist.twoway;
 
 import com.yhcui.ds.linkedlist.MyLinkedList;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
@@ -23,24 +22,18 @@ import static junit.framework.TestCase.*;
  */
 public class TwoWayLinkedListTest {
 
-    private MyLinkedList<Integer> myLinkedList;
 
-    @Before
-    public void before() {
-        myLinkedList = new TwoWayLinkedList<>();
-        myLinkedList.add(1);
-        myLinkedList.add(2);
-        myLinkedList.add(3);
-    }
 
     @Test
     public void testAdd() {
+        MyLinkedList<Integer> myLinkedList = buildCommonMyLinkedList();
         assertEquals(3, myLinkedList.size());
     }
 
     @Test
     public void testGet() {
 
+        MyLinkedList<Integer> myLinkedList = buildCommonMyLinkedList();
         assertEquals(1, myLinkedList.get(0).intValue());
         assertEquals(2, myLinkedList.get(1).intValue());
         assertEquals(3, myLinkedList.get(2).intValue());
@@ -62,11 +55,13 @@ public class TwoWayLinkedListTest {
 
     @Test
     public void testSize() {
+        MyLinkedList<Integer> myLinkedList = buildCommonMyLinkedList();
         assertEquals(3, myLinkedList.size());
     }
 
     @Test
     public void testReverse() {
+        MyLinkedList<Integer> myLinkedList = buildCommonMyLinkedList();
         myLinkedList.reverse();
         assertEquals(3, myLinkedList.get(0).intValue());
         assertEquals(2, myLinkedList.get(1).intValue());
@@ -82,5 +77,20 @@ public class TwoWayLinkedListTest {
         } catch (Exception e) {
             assertEquals(true, "索引超出边界异常".equals(e.getMessage()));
         }
+    }
+
+    /**
+     * 构建通用 测试list
+     * @author cuiyuhui
+     * @created
+     * @param
+     * @return
+     */
+    private MyLinkedList buildCommonMyLinkedList() {
+        MyLinkedList myLinkedList = new TwoWayLinkedList<>();
+        myLinkedList.add(1);
+        myLinkedList.add(2);
+        myLinkedList.add(3);
+        return myLinkedList;
     }
 }
