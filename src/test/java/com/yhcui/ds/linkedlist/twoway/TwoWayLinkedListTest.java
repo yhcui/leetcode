@@ -68,7 +68,6 @@ public class TwoWayLinkedListTest {
     @Test
     public void testReverse() {
         myLinkedList.reverse();
-        ((TwoWayLinkedList)myLinkedList).list();
         assertEquals(3, myLinkedList.get(0).intValue());
         assertEquals(2, myLinkedList.get(1).intValue());
         assertEquals(1, myLinkedList.get(2).intValue());

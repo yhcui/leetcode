@@ -92,14 +92,6 @@ public class TwoWayLinkedList<E> implements MyLinkedList<E> {
         last = tempLast;
     }
 
-    public void list() {
-        Node tempNode = first;
-        while (tempNode != null) {
-            System.out.println("list:" + tempNode.data);
-            tempNode = tempNode.next;
-        }
-    }
-
     private class Node<E> {
 
         E data;
