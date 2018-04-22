@@ -3,6 +3,7 @@ package com.yhcui.alg.sort;
 import java.util.Arrays;
 
 /**
+ * 快速排序
  * <p>https://www.cnblogs.com/chengxiao/p/6262208.html </p>
  * <p>
  * <PRE>
