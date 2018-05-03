@@ -23,8 +23,8 @@ public class Tree {
     public static void main(String[] args) {
         Tree tree = new Tree();
         tree.init();
-//        tree.preOrder(tree.root);
-        tree.midOrder(tree.root);
+        tree.preOrder(tree.root);
+//        tree.midOrder(tree.root);
 //        tree.postOrder(tree.root);
         for (Node node : tree.list) {
             System.out.println("node:" + node.data);

@@ -21,13 +21,14 @@ public class QuickSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+//        int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 //        int[] arr = {3, 2, 1};
 //        int[] arr = {3, 1, 2};
 //        int[] arr = {1, 2, 3};
 //        int[] arr = {1, 3, 2};
 //        int[] arr = {2, 3, 1};
 //        int[] arr = {2, 1, 3};
+        int[] arr = {6, 1, 8, 7};
         quickSort(arr, 0, arr.length -1);
         System.out.println("排序结果:" + Arrays.toString(arr));
     }
